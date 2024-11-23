@@ -19,7 +19,7 @@ jobs:
       # Step 2: Run Roblox Player Installer
       - name: Run Roblox Player Installer
         run: |
-          start RobloxPlayerInstaller.exe
+          start /wait RobloxPlayerInstaller.exe
           
       # Step 3: Downloading & Installing Essentials
       - name: Downloading & Installing Essentials
@@ -31,9 +31,10 @@ jobs:
       - name: Show Website
         run: cmd /c show.bat
 
-      # Step 5: Time Counter (run in background)
+      # Step 5: Time Counter (run in background, fixing start /b issue)
       - name: Time Counter
-        run: start /b loop.bat
+        run: |
+          start cmd /c loop.bat
 
       # Step 6: Debug Log
       - name: Log Time Counter Completion
